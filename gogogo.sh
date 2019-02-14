@@ -26,9 +26,9 @@ while true; do
    curl $config > config.yaml
    log "CONFIG:"
    cat config.yaml
+   echo
    log "TODO - if end token in it stop"
-   log "TODO - get trinket project json for each in config"
-   run_ruby src/check_projects.rb
+   run_ruby src/check_projects.rb config.yaml
    log "TODO - for last 3(?config) run in random order"
    log "TODO - run by generating a script which is then called"
    log "TODO - if sleep time in it, use that"
