@@ -13,6 +13,12 @@ function run_ruby
 
 log "Trinket Reloader Running!"
 
+ruby -v
+rc=$?
+if [ $rc -ne 0 ]; then
+  log "ERROR - require ruby (preferably 2.5++) to run"
+fi
+
 config=$1
 if [ -z "$config" ]; then
   log "ERROR - no yaml config file/url specified"

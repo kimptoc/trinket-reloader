@@ -85,7 +85,7 @@ config.each_pair do |name, id|
     if File::exist? main_py
         puts
         puts "Running #{name} project #{id}:"
-        `python3 "#{main_py}"`
+        puts `python3 "#{main_py}"`
         puts
     end
 end
