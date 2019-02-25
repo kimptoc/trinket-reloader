@@ -32,15 +32,15 @@ while true; do
    curl $config | tee config.yaml
    log ""
    log "curl rc:$?"
-   log "CONFIG:"
-   cat config.yaml
-   echo
-   log "TODO - if end token in it stop"
+   #log "CONFIG:"
+   #cat config.yaml
+   #echo
+   #log "TODO - if end token in it stop"
    run_ruby src/check_projects.rb config.yaml
-   log "TODO - for last 3(?config) run in random order"
-   log "TODO - run by generating a script which is then called"
-   log "TODO - if sleep time in it, use that"
+   #log "TODO - for last 3(?config) run in random order"
+   #log "TODO - run by generating a script which is then called"
+   #log "TODO - if sleep time in it, use that"
 
    sleep 5
-   log "TODO - git pull this project to update itself - hence can change a little while running"
+   #log "TODO - git pull this project to update itself - hence can change a little while running"
 done

@@ -69,6 +69,8 @@ end
 
 # https://trinket.io/python/6823e0288d.json
 
+config = config.sort {|a, b| rand <=> rand }.to_h
+
 config.each_pair do |name, id|
     puts "Name:#{name}, project id:#{id}"
 
@@ -79,13 +81,16 @@ config.each_pair do |name, id|
     project_dir = "projects/#{name}/#{id}"
     FileUtils.mkdir_p project_dir
     res["code"].each do |code_file|
-        File.write "#{project_dir}/#{code_file['name']}", code_file['content']
-        puts "#{code_file['name']} length: #{code_file['content'].length}"
+        code_text = code_file['content']
+ #       code_text = code_text.gsub("sense_hat","sense_emu")
+        File.write "#{project_dir}/#{code_file['name']}", code_text
+        puts "#{code_file['name']} length: #{code_text.length}"
     end
     main_py = "#{project_dir}/main.py"
     if File::exist? main_py
         puts
         puts "Running #{name} project #{id}:"
+        puts `python3 say.py "#{name}"`
         puts `python3 "#{main_py}"`
         puts
     end
