@@ -29,7 +29,9 @@ log "config file is yaml format, list of student names and shared trinket projec
 
 while true; do
    log "Getting config file: $config"
-   curl $config > config.yaml
+   curl $config | tee config.yaml
+   log ""
+   log "curl rc:$?"
    log "CONFIG:"
    cat config.yaml
    echo

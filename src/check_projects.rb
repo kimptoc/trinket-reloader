@@ -80,6 +80,7 @@ config.each_pair do |name, id|
     FileUtils.mkdir_p project_dir
     res["code"].each do |code_file|
         File.write "#{project_dir}/#{code_file['name']}", code_file['content']
+        puts "#{code_file['name']} length: #{code_file['content'].length}"
     end
     main_py = "#{project_dir}/main.py"
     if File::exist? main_py
